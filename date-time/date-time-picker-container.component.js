@@ -200,11 +200,6 @@ var OwlDateTimeContainerComponent = (function () {
                 this.pickerMoment = result;
                 this.picker.select(result);
             }
-            else {
-                if (this.pickerType === 'calendar') {
-                    this.hidePicker$.next(null);
-                }
-            }
             return;
         }
         if (this.picker.isInRangeMode) {
