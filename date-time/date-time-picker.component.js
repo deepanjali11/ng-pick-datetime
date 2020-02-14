@@ -281,11 +281,12 @@ var OwlDateTimeComponent = (function (_super) {
         this.pickerContainer.picker = this;
         this.hidePickerStreamSub = this.pickerContainer.hidePickerStream
             .subscribe(function () {
-            _this.close();
+        _this.close();
         });
         this.confirmSelectedStreamSub = this.pickerContainer.confirmSelectedStream
             .subscribe(function (event) {
             _this.confirmSelect(event);
+            _this.close();
         });
     };
     OwlDateTimeComponent.prototype.select = function (date) {
@@ -361,7 +362,6 @@ var OwlDateTimeComponent = (function (_super) {
         else if (this.isInRangeMode) {
             this.confirmSelectedChange.emit(this.selecteds);
         }
-        this.close();
         return;
     };
     OwlDateTimeComponent.prototype.openAsDialog = function () {
